@@ -43,11 +43,11 @@ func handleCd(path string) string {
             return ""
 }
 
-func handleExec(cmd string, args []string) error {
+func handleExec(cmd string, args []string) {
             exe := exec.Command(cmd, args...)
             exe.Stderr = os.Stderr
             exe.Stdout = os.Stdout
-            err :=  exe.Run()
+            err := exe.Run()
             if err != nil {
                 fmt.Fprint(os.Stdout, input[:len(input)] + ": command not found\n")
             }

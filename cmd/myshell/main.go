@@ -19,7 +19,9 @@ func main() {
         case "type":
             switch cmd[1] {
             case "exit", "echo", "type":
-                fmt.Fprint(os.Stdout, cmd[1]+" is a shell builtin\n")
+                fmt.Fprint(os.Stdout, cmd[1] + " is a shell builtin\n")
+            default:
+                fmt.Fprintf(os.Stdout, cmd[1] + " not found\n")
             }
         case "echo":
             fmt.Fprint(os.Stdout, strings.Join(cmd[1:], " ") + "\n")

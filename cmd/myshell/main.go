@@ -16,9 +16,6 @@ func main() {
         input, _ := bufio.NewReader(os.Stdin).ReadString('\n')
         input = strings.TrimSpace(input)
         cmd := strings.Split(input, " ")
-        if len(cmd) == 0 {
-            fmt.Println("")
-        }
         switch cmd[0] {
         case "type":
             switch cmd[1] {
@@ -30,7 +27,7 @@ func main() {
                     fp := filepath.Join(path, cmd[1])
                     if _, err := os.Stat(fp); err == nil {
                         fmt.Fprint(os.Stdout, fp + "\n")
-                        return
+                        continue
                     }
                 }
                 fmt.Fprintf(os.Stdout, cmd[1] + " not found\n")

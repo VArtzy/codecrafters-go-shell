@@ -41,7 +41,7 @@ func main() {
     }
 }
 
-func handleExec(cmd string, args []string) {
+func handleExec(cmd string, args []string) error {
             exe := exec.Command(cmd, args...)
             exe.Stderr = os.Stderr
             exe.Stdout = os.Stdout

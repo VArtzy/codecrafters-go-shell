@@ -28,6 +28,7 @@ func main() {
                         return
                     }
                 }
+                fmt.Fprint(os.Stdout, cmd[1] + " is a shell builtin\n")
             default:
                 fmt.Fprintf(os.Stdout, cmd[1] + " not found\n")
             }

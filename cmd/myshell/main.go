@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+    Exit:
     for {
         fmt.Fprint(os.Stdout, "$ ")
 
@@ -27,7 +28,7 @@ func main() {
                     fp := filepath.Join(path, cmd[1])
                     if _, err := os.Stat(fp); err == nil {
                         fmt.Fprint(os.Stdout, fp + "\n")
-                        continue
+                        continue Exit
                     }
                 }
                 fmt.Fprintf(os.Stdout, cmd[1] + " not found\n")

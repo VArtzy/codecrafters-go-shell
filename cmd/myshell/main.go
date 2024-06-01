@@ -19,8 +19,8 @@ func main() {
         cmd := strings.Split(input, " ")
         switch cmd[0] {
         case "cd":
-            path := handleCd(cmd[1])
-            if path != "" {
+            path, err := handleCd(cmd[1])
+            if err != nil {
                 cmd[1] = path
             }
         case "type":
@@ -35,14 +35,14 @@ func main() {
     }
 }
 
-func handleCd(path string) string {
+func handleCd(path string) (string, error) {
             if strings.TrimSpace(path) == "~" {
-                return os.Getenv("HOME")
+                return os.Getenv("HOME"), nil
             }
             if err := os.Chdir(path); err != nil {
                 fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")
             }
-            return ""
+            return "", fmt.Errorf("No such file or directory")
 }
 
 func handleExec(cmd string, args []string, input string) {

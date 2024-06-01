@@ -23,7 +23,6 @@ func main() {
             if err := os.Chdir(cmd[1]); err != nil {
                 fmt.Fprintf(os.Stdout, cmd[1] + ": No such file or directory\n")
             }
-            continue
         case "type":
             switch cmd[1] {
             case "exit", "echo", "type":

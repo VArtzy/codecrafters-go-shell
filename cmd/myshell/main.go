@@ -23,7 +23,7 @@ func main() {
                 cmd[1] = os.Getenv("HOME")
             }
             if err := os.Chdir(cmd[1]); err != nil {
-                fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")
+                fmt.Fprintf(os.Stdout, cmd[1] + ": No such file or directory\n")
             }
         case "type":
             handleType(cmd[1])

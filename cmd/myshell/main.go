@@ -18,7 +18,7 @@ func main() {
         case "exit 0":
             os.Exit(0)
         default:
-            fmt.Fprint(os.Stdout, input[:len(input) - 1] + ": command not found\n")
+            fmt.Fprint(os.Stdout, input[:len(input)] + ": command not found\n")
         }
     }
 }

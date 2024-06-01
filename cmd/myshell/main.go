@@ -32,7 +32,7 @@ func main() {
         case "exit":
             os.Exit(0)
         default:
-            err := handleExec(cmd[0], cmd[:1])
+            err := handleExec(cmd[0], cmd[1:])
             if err != nil {
                 fmt.Fprint(os.Stdout, input[:len(input)] + ": command not found\n")
             }

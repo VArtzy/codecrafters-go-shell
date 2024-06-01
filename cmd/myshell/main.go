@@ -16,6 +16,11 @@ func main() {
         input = strings.TrimSpace(input)
         cmd := strings.Split(input, " ")
         switch cmd[0] {
+        case "type":
+            switch cmd[1] {
+            case "exit", "echo", "type":
+                fmt.Fprint(os.Stdout, cmd[1]+" is a shell builtin\n")
+            }
         case "echo":
             fmt.Fprint(os.Stdout, strings.Join(cmd[1:], " ") + "\n")
         case "exit":

@@ -28,7 +28,7 @@ func main() {
         case "exit":
             os.Exit(0)
         default:
-            handleExec(cmd[0], cmd[1:])
+            handleExec(cmd[0], cmd[1:], input)
         }
     }
 }
@@ -43,7 +43,7 @@ func handleCd(path string) string {
             return ""
 }
 
-func handleExec(cmd string, args []string) {
+func handleExec(cmd string, args []string, input string) {
             exe := exec.Command(cmd, args...)
             exe.Stderr = os.Stderr
             exe.Stdout = os.Stdout

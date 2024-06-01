@@ -22,7 +22,7 @@ func main() {
         case "cd":
             homedir := handleCd(cmd[1])
             if homedir != nil {
-                cmd[1] = homdir
+                cmd[1] = homedir
             } 
         case "type":
             switch cmd[1] {
@@ -55,7 +55,7 @@ func main() {
     }
 }
 
-func handleCd(path string) string {
+func handleCd(path string) *string {
             if strings.TrimSpace(path) == "~" {
                 return os.Getenv("HOME")
             }

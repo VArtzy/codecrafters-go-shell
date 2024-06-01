@@ -62,4 +62,5 @@ func handleCd(path string) string {
             if err := os.Chdir(path); err != nil {
                 fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")
             }
+            return nil
 }

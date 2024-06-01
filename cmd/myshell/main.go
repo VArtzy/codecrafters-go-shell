@@ -20,12 +20,11 @@ func main() {
         switch cmd[0] {
         case "cd":
             if strings.TrimSpace(cmd[1]) == "~" {
-                return os.Getenv("HOME"), nil
+                cmd[1] = os.Getenv("HOME")
             }
             if err := os.Chdir(cmd[1]); err != nil {
                 fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")
             }
-            return "", fmt.Errorf("")
         case "type":
             handleType(cmd[1])
         case "echo":

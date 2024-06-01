@@ -17,7 +17,7 @@ func main() {
         cmd := strings.Split(input, " ")
         switch input {
         case "echo":
-            fmt.Fprint(os.Stdout, strings.Join(command[1:], " ") + "\n")
+            fmt.Fprint(os.Stdout, strings.Join(cmd[1:], " ") + "\n")
         case "exit 0":
             os.Exit(0)
         default:

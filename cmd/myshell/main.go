@@ -18,7 +18,7 @@ func main() {
         switch cmd[0] {
         case "echo":
             fmt.Fprint(os.Stdout, strings.Join(cmd[1:], " ") + "\n")
-        case "exit 0":
+        case "exit":
             os.Exit(0)
         default:
             fmt.Fprint(os.Stdout, input[:len(input)] + ": command not found\n")

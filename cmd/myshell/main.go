@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-    Exit:
     for {
         fmt.Fprint(os.Stdout, "$ ")
 
@@ -59,7 +58,7 @@ func handleType(arg string) {
                     fp := filepath.Join(path, arg)
                     if _, err := os.Stat(fp); err == nil {
                         fmt.Fprint(os.Stdout, fp + "\n")
-                        continue Exit
+                        return
                     }
                 }
                 fmt.Fprintf(os.Stdout, arg + " not found\n")

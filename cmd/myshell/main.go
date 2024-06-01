@@ -20,6 +20,8 @@ func main() {
         case "type":
             switch cmd[1] {
             case "exit", "echo", "type":
+                fmt.Fprint(os.Stdout, cmd[1] + " is a shell builtin\n")
+            default:
                 paths := strings.Split(os.Getenv("PATH"), ":")
                 for _, path := range paths {
                     fp := filepath.Join(path, cmd[1])
@@ -28,8 +30,6 @@ func main() {
                         return
                     }
                 }
-                fmt.Fprint(os.Stdout, cmd[1] + " is a shell builtin\n")
-            default:
                 fmt.Fprintf(os.Stdout, cmd[1] + " not found\n")
             }
         case "echo":

@@ -20,7 +20,7 @@ func main() {
         cmd := strings.Split(input, " ")
         switch cmd[0] {
         case "cd":
-            homedir := handleCd(cmd[1])
+            homedir := handleCd(&cmd[1])
             if homedir != nil {
                 cmd[1] = homdir
             } 

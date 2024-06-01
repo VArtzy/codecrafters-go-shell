@@ -15,7 +15,7 @@ func main() {
         input, _ := bufio.NewReader(os.Stdin).ReadString('\n')
         input = strings.TrimSpace(input)
         cmd := strings.Split(input, " ")
-        switch input {
+        switch cmd[0] {
         case "echo":
             fmt.Fprint(os.Stdout, strings.Join(cmd[1:], " ") + "\n")
         case "exit 0":

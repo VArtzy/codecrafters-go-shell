@@ -20,7 +20,9 @@ func main() {
         switch cmd[0] {
         case "cd":
             path := handleCd(cmd[1])
-            cmd[1] = path
+            if path != "" {
+                cmd[1] = path
+            }
         case "type":
             handleType(cmd[1])
         case "echo":

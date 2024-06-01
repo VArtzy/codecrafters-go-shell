@@ -16,6 +16,9 @@ func main() {
         input, _ := bufio.NewReader(os.Stdin).ReadString('\n')
         input = strings.TrimSpace(input)
         cmd := strings.Split(input, " ")
+        if len(cmd) == 0 {
+            fmt.Println("")
+        }
         switch cmd[0] {
         case "type":
             switch cmd[1] {

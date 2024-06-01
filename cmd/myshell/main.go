@@ -19,12 +19,7 @@ func main() {
         cmd := strings.Split(input, " ")
         switch cmd[0] {
         case "cd":
-            if strings.TrimSpace(cmd[1]) == "~" {
-                cmd[1] = os.Getenv("HOME")
-            }
-            if err := os.Chdir(cmd[1]); err != nil {
-                fmt.Fprintf(os.Stdout, cmd[1] + ": No such file or directory\n")
-            }
+            handleCd(cmd[1])
         case "type":
             handleType(cmd[1])
         case "echo":
@@ -32,19 +27,28 @@ func main() {
         case "exit":
             os.Exit(0)
         default:
-            err := handleExec(cmd[0], cmd[1:])
-            if err != nil {
-                fmt.Fprint(os.Stdout, input[:len(input)] + ": command not found\n")
-            }
+            handleExec(cmd[0], cmd[1:])
         }
     }
+}
+
+func handleCd(path string) {
+            if strings.TrimSpace(path) == "~" {
+                cmd[1] = os.Getenv("HOME")
+            }
+            if err := os.Chdir(path); err != nil {
+                fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")
+            }
 }
 
 func handleExec(cmd string, args []string) error {
             exe := exec.Command(cmd, args...)
             exe.Stderr = os.Stderr
             exe.Stdout = os.Stdout
-            return exe.Run()
+            err :=  exe.Run()
+            if err != nil {
+                fmt.Fprint(os.Stdout, input[:len(input)] + ": command not found\n")
+            }
 }
 
 func handleType(arg string) {

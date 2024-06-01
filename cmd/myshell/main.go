@@ -34,7 +34,7 @@ func main() {
 
 func handleCd(path string) {
             if strings.TrimSpace(path) == "~" {
-                path = os.Getenv("HOME"), nil
+                path = os.Getenv("HOME")
             }
             if err := os.Chdir(path); err != nil {
                 fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")

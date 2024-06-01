@@ -1,3 +1,16 @@
+# Creating own shell in Go Programming Languange
+Creating shell REPL in go that can run built-in OS shell command to learn about how shell works.
+
+- REPL using go for loop
+- Execute executable file
+- Print output
+- Use OS shell command with go os/exec
+- Learn type, cd, pwd, echo deeper as builtin command
+
+## Future?
+
+- Error handling
+
 [![progress-banner](https://backend.codecrafters.io/progress/shell/987db4eb-110e-4ee1-8724-d9033bdb9fef)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
 
 This is a starting point for Go solutions to the

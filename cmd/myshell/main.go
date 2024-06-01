@@ -55,9 +55,6 @@ func main() {
     }
 }
 
-func handleType() {
-}
-
 func handleCd(path) {
             if strings.TrimSpace(path) == "~" {
                 return os.Getenv("HOME")

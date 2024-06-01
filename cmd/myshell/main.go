@@ -13,7 +13,7 @@ func main() {
 
         // Wait for user input
         input, _ := bufio.NewReader(os.Stdin).ReadString('\n')
-        input = strings.TrimSpace(cmd);
+        input = strings.TrimSpace(input)
         switch input {
         case "exit 0":
             os.Exit(0)

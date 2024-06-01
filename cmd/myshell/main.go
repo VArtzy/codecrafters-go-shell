@@ -20,6 +20,9 @@ func main() {
         cmd := strings.Split(input, " ")
         switch cmd[0] {
         case "cd":
+            if err := os.Chdir(cmd[1]); err != nil {
+                fmt.Fprintf(os.Stdout, cmd[1] + ": No such file or directory\n")
+            }
             continue
         case "type":
             switch cmd[1] {

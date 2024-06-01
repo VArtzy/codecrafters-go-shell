@@ -20,8 +20,8 @@ func main() {
         cmd := strings.Split(input, " ")
         switch cmd[0] {
         case "cd":
-            homedir := handleCd(cmd[1])
-            if homedir != nil {
+            homedir, err := handleCd(cmd[1])
+            if err != nil {
                 cmd[1] = homedir
             } 
         case "type":
@@ -55,13 +55,12 @@ func main() {
     }
 }
 
-func handleCd(path string) *string {
+func handleCd(path string) (homedir string, err error) {
             if strings.TrimSpace(path) == "~" {
-                ret := os.Getenv("HOME")
-                return &ret
+                return (os.Getenv("HOME"), nil)
             }
             if err := os.Chdir(path); err != nil {
                 fmt.Fprintf(os.Stdout, path + ": No such file or directory\n")
             }
-            return nil
+            return ("", "")
 }
